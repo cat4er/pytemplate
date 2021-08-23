@@ -1,6 +1,6 @@
 from wsgiref.util import setup_testing_defaults
-from wsgiref.simple_server import make_server
-from Lesson1.urls import *
+
+from Lesson1.urls import fronts, routes
 
 
 class Application:
@@ -19,7 +19,7 @@ class Application:
         if path in self.routes:
             view = self.routes[path]
         else:
-            view = NotFound404()
+            view = self.routes['/404']
         request = {}
 
         # общий обработчик
@@ -32,6 +32,3 @@ class Application:
 
 application = Application(routes, fronts)
 
-with make_server('', 8080, application) as httpd:
-    print("Serving on port 8080...")
-    httpd.serve_forever()

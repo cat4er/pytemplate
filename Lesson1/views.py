@@ -1,4 +1,4 @@
-from Lesson1.my_framework.template import render
+from my_framework.template import render
 
 
 class Index:

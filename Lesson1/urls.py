@@ -1,5 +1,7 @@
 from datetime import datetime
-from Lesson1.views import *
+
+from views import *
+
 
 # Front controllers
 def time_front(request):
@@ -16,9 +18,9 @@ def other_front(request):
 
 routes = {
     '/': Index(),
+    '/404': NotFound404(),
     '/about/': About(),
     '/riddles/': Riddles(),
 }
 
 fronts = [time_front, date_front, other_front]
-
