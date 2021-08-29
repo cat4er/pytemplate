@@ -1,0 +1,50 @@
+<script type="text/javascript">
+    let answer = parseInt(Math.random() * 100);
+    let tryCount = 0;
+    let maxTryCount = 6;
+    let user = 1;
+
+    function readInt(){
+        let number = document.getElementById("userAnswer").value;
+        return parseInt(number);
+        // return +document.getElementById("userAnswer").value;
+    }
+
+    function write(text){
+        document.getElementById("info").innerHTML = text;
+    }
+
+    function hide(id){
+        document.getElementById(id).style.display = "none";
+    }
+
+    function changeUser (){
+        if ( user == 1 ) {
+            user = 2;
+        } else {
+            user = 1;
+        }
+
+    }
+
+    function guess(){
+        tryCount++;
+        let userAnswer = readInt();
+        if(userAnswer == answer){
+            write("<b>Поздравляю, пользователь №" + user + " вы угадали!</b>");
+            hide("button");
+            hide("userAnswer");
+        } else if(tryCount >= maxTryCount){
+            write("Вы проиграли<br>Правильный ответ: " + answer);
+            hide("button");
+            hide("userAnswer");
+        } else if(userAnswer > answer){
+            changeUser ();
+            write("<b>Вы ввели слишком большое число.</b><br><br><br> <b>Пользователь №" + user + "</b>, введите число от 1 до 100");
+        } else if(userAnswer < answer){
+            changeUser ();
+            write("<b>Вы ввели слишком маленькое число.</b><br><br><br>  <b>Пользователь №" + user + "</b>, введите число от 1 до 100");
+        }
+
+    }
+</script>
