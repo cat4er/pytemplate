@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+Создание курса
+{% endblock %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block header %}
+	{% include "inc-header.html" %}
+{% endblock %}
+{% block menu %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block body %}
+
+<div class="content">
+    <div class="center">
+        <div class="box_text">
+                <h1>Создание курса для категории "{{name}}"</h1>
+                <form method="post">
+                    <input type="text" name="name" placeholder="Название">
+                    <button type="submit">Сохранить и вернуться к списку курсов</button>
+                </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}
