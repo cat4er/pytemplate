@@ -1,0 +1,31 @@
+<div class="content">
+    <div class="center">
+        <div class="box_text">
+            <p><i>Добрый день. Меня зовут <b>Виктор Павлюк</b>, мне 29 лет. Я совсем недавно начал программировать, делаю прям первые шаги, ранее ничего сложнее, чем игры в "косынку", на компьюетере не делал, однако уже написал свой первый сайт.</i></p>
+
+            <p><i>На этом сайте я научу Вас махать лопатой.</i> <br>
+
+            <h1>Список существующих категорий</h1>
+                    <li>
+                        <a href="/create-category/">Создать новую категорию</a>
+                    </li>
+            {% for item in objects_list %}
+                <li>
+                    {{item.name}} <span>Количество курсов: {{item.course_count()}}</span>
+                    <a href="/courses-list/?id={{item.id}}">Показать курсы</a>
+                </li>
+            {% endfor %}
+            	<div>
+                    <li>
+                        <a href="/student-list/">Список студентов</a>
+                    </li>
+                    <li>
+                        <a href="/create-student/">Создать студента</a>
+                    </li>
+                    <li>
+                        <a href="/add-student/">Добавить студента на курс</a>
+                    </li>
+                </div>
+        </div>
+    </div>
+</div>
